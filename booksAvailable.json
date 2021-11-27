@@ -1,10 +1,26 @@
 [
-  {
-    "name": "Dune",
-    "author": "Frank Herbert"
-  },
-  {
-    "name": "The Lost Symbol",
-    "author": "Dan Brown"
-  }
+      {
+            "name": "The Lost Symbol",
+            "author": "Dan Brown"
+      },
+      {
+            "name": "Kafka on the Shore",
+            "author": "Ulysses Grant"
+      },
+      {
+            "name": "Kafka on the Shore",
+            "author": "Ulysses Grant"
+      },
+      {
+            "name": "Dune",
+            "author": "Frank Herbert"
+      },
+      {
+            "name": "Dune",
+            "author": "Frank Herbert"
+      },
+      {
+            "name": "Dune",
+            "author": "Frank Herbert"
+      }
 ]

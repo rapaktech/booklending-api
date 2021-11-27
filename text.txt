@@ -1,0 +1,13 @@
+bookStore.addBook({name: 'Dune', author: 'Frank Herbert'});
+console.log(bookStore.viewEntireLibrary());
+
+bookStore.deleteBook({name: 'Kafka on the Shore', author: "Ulysses Grant"});
+console.log(bookStore.viewEntireLibrary());
+
+bookStore.lend({name: 'The Lost Symbol', author: 'Dan Brown'});
+console.log(bookStore.viewAvailableBooks());
+console.log(bookStore.viewLentBooks());
+
+bookStore.return({name: 'The Lost Symbol', author: 'Dan Brown'});
+console.log(bookStore.viewAvailableBooks());
+console.log(bookStore.viewLentBooks());

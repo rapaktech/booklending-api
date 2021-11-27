@@ -12,10 +12,15 @@ let bookStore = (function () {
     let booksLent = require('./loadLentBooks');
 
     addNewBook = function (book) {
-        allBooks.push(book);
-        booksAvailable.push(book);
-        writeToAllBooks(allBooks);
-        writeToAvailableBooks(booksAvailable);
+        let foundbook = allBooks.find(({ name, author }) => {name == book.name && author == book.author });
+        if (foundbook) {
+            return;
+        } else {
+            allBooks.push(book);
+            booksAvailable.push(book);
+            writeToAllBooks(allBooks);
+            writeToAvailableBooks(booksAvailable);
+        }
     }
 
     deleteOldBook = function (book) {
@@ -56,14 +61,17 @@ let bookStore = (function () {
 
     viewAvailable = function () {
         console.log(booksAvailable);
+        return booksAvailable;
     }
 
     viewLent = function () {
         console.log(booksLent);
+        return booksLent;
     }
 
     viewAllBooks = function () {
         console.log(allBooks);
+        return allBooks;
     }
 
     return {
@@ -84,29 +92,16 @@ let bookStore = (function () {
         },
 
         viewAvailableBooks: function () {
-            viewAvailable();
+            return viewAvailable();
         },
 
         viewLentBooks: function () {
-            viewLent();
+            return viewLent();
         },
         viewEntireLibrary: function () {
-            viewAllBooks();
+            return viewAllBooks();
         }
     }
 })();
 
-
-bookStore.addBook({name: 'Dune', author: 'Frank Herbert'});
-console.log(bookStore.viewEntireLibrary());
-
-bookStore.deleteBook({name: 'Kafka on the Shore', author: "Ulysses Grant"});
-console.log(bookStore.viewEntireLibrary());
-
-bookStore.lend({name: 'The Lost Symbol', author: 'Dan Brown'});
-console.log(bookStore.viewAvailableBooks());
-console.log(bookStore.viewLentBooks());
-
-bookStore.return({name: 'The Lost Symbol', author: 'Dan Brown'});
-console.log(bookStore.viewAvailableBooks());
-console.log(bookStore.viewLentBooks());
+module.exports = bookStore;
